@@ -1,27 +1,33 @@
 import java.util.Scanner;
 import java.lang.Math;
 
+// Rode o código no replit.com: https://replit.com/@RaldineyRibeiro/EquacaoDoSegundoGrau#Main.java
+
 class Main
 {
   
   public static void main(String[] args) 
   {
 
-    Scanner input = new Scanner(System.in);         
+    Scanner entrada = new Scanner(System.in); 
     
     int coeficienteA, coeficienteB, coeficienteC;
 
+    do
+    {
+    
     System.out.print("\n\n\n\tEQUAÇÃO DO 2º GRAU!");
     
     
     System.out.print("\n\n\n\tInforme o valor de A: ");
-    coeficienteA = input.nextInt();
+    coeficienteA = entrada.nextInt();
     
     System.out.print("\n\tInforme o valor de B: ");
-    coeficienteB = input.nextInt();
+    coeficienteB = entrada.nextInt();
     
     System.out.print("\n\tInforme o valor de C: ");
-    coeficienteC = input.nextInt();
+    coeficienteC = entrada.nextInt();
+    
 
     System.out.println("\n\n\n\tOs respectivos valores informados foram: " +
                        "\n\n\tA = "+ coeficienteA+"  B = "+ + coeficienteB +" e C = "+ coeficienteC+".");
@@ -29,8 +35,10 @@ class Main
     
     analisarCoeficientes(coeficienteA ,coeficienteB ,coeficienteC );
     analisarDiscriminante(coeficienteA ,coeficienteB ,coeficienteC );
-      
-    input.close(); 
+
+    
+    }while(true);
+     
   }
 
 
@@ -60,7 +68,7 @@ class Main
 
   }
 
-
+  
 
 
   
@@ -94,7 +102,7 @@ class Main
      
  }
 
-
+  
 
 
   
@@ -118,6 +126,9 @@ class Main
   }
 
   
+
+
+  
   static void calcularEquacao( int coeficienteA, int coeficienteB, int coeficienteC, double DELTA)
   {
     double XI, XII;
@@ -128,7 +139,8 @@ class Main
       XII = ((-coeficienteB) - Math.sqrt(DELTA)) / 2 * coeficienteA;
     
       System.out.printf("\n\tO valor de X' = %.2f\n\tO valor de X\" = %.2f", XI, XII);
-    } 
+    }
+    
   }
 
 
