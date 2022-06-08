@@ -96,7 +96,7 @@ class Main
      
    else
    {
-    System.out.println("\n\tA equação possui apenas uma soluão Real: ");
+    System.out.println("\n\tA equação possui apenas uma solução Real: ");
      calcularVertices(coeficienteA, coeficienteB, coeficienteC, DELTA);
    }
      
