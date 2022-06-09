@@ -77,9 +77,9 @@ class Main
  
   {
 
-   double discriminanteCalculado = calcularDiscriminante(coeficienteA, coeficienteB, coeficienteC);
+  double discriminanteCalculado = calcularDiscriminante(coeficienteA, coeficienteB, coeficienteC);
 
-   System.out.printf("\n\tO valor do Δ (Delta) é: %.2f", discriminanteCalculado);
+   System.out.printf("\n\tO valor do Δ (Delta) é: %.1f", discriminanteCalculado);
     
    
    if (discriminanteCalculado > 0)
@@ -142,14 +142,11 @@ class Main
   
   {
     double XI, XII;
-  
-    if(DELTA > 0)
-    {
-      XI = ((-coeficienteB) + Math.sqrt(DELTA)) / 2 * coeficienteA;
-      XII = ((-coeficienteB) - Math.sqrt(DELTA)) / 2 * coeficienteA;
+   
+      XI = ( (-coeficienteB) + Math.sqrt(DELTA) ) / (2 * coeficienteA);
+      XII = ( (-coeficienteB) - Math.sqrt(DELTA) ) / (2 * coeficienteA);
     
       System.out.printf("\n\tO valor de X' = %.2f\n\tO valor de X\" = %.2f", XI, XII);
-    }
     
   }
 
