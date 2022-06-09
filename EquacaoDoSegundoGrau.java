@@ -1,15 +1,16 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-// Rode o código no replit.com: https://replit.com/@RaldineyRibeiro/EquacaoDoSegundoGrau#Main.java
+// Rode o código aqui: https://replit.com/@RaldineyRibeiro/EquacaoDoSegundoGrau#Main.java
 
 class Main
 {
   
   public static void main(String[] args) 
   {
-
-    Scanner entrada = new Scanner(System.in); 
+    
+    Scanner entrada = new Scanner(System.in);
+    
     
     int coeficienteA, coeficienteB, coeficienteC;
 
@@ -30,22 +31,22 @@ class Main
     
 
     System.out.println("\n\n\n\tOs respectivos valores informados foram: " +
-                       "\n\n\tA = "+ coeficienteA+"  B = "+ + coeficienteB +" e C = "+ coeficienteC+".");
+                       "\n\n\tA = "+ coeficienteA+"  B = "+
+                       coeficienteB +" e C = "+ coeficienteC+".");
     
     
     analisarCoeficientes(coeficienteA ,coeficienteB ,coeficienteC );
     analisarDiscriminante(coeficienteA ,coeficienteB ,coeficienteC );
 
+       
+    }while(true); 
     
-    }while(true);
-     
   }
 
-
-
-
   
-  static void analisarCoeficientes(int coeficienteA, int coeficienteB, int coeficienteC)
+
+  static void analisarCoeficientes( int coeficienteA, int coeficienteB, int coeficienteC)
+  
   {
     
     if(coeficienteA == 0)
@@ -57,39 +58,39 @@ class Main
     else if(coeficienteB != 0 && coeficienteC != 0)
     {
       System.out.println("\n\n\tA equação: " +
-                         coeficienteA + "X² + " + coeficienteB +"X + " + coeficienteC+" = 0" +" é COMPLETA.");
+                         coeficienteA + "X² + " + coeficienteB +"X + " +
+                         coeficienteC+" = 0" +" é COMPLETA.");
     }
       
     else
     {
       System.out.println("\n\n\tA equação informada é INCOMPLETA." +
-                         "\n\tDevido quê: Os valores de B ou C são iguais a ZERO.");
+                         "\n\tDevido quê: Os valores de B ou C são " +
+                         "iguais a ZERO.");
     }
 
   }
 
-  
-
 
   
-   static void analisarDiscriminante( int coeficienteA, int coeficienteB, int coeficienteC )
- {
-   
-   double DELTA;
-   
-   DELTA = Math.pow(coeficienteB , 2) -4 * coeficienteA * coeficienteC;
+   static void analisarDiscriminante( int coeficienteA, int coeficienteB, int coeficienteC)
+ 
+  {
 
-   System.out.printf("\n\tO valor do Δ (Delta) é: %.2f", DELTA);
+   double discriminanteCalculado = calcularDiscriminante(coeficienteA, coeficienteB, coeficienteC);
+
+   System.out.printf("\n\tO valor do Δ (Delta) é: %.2f", discriminanteCalculado);
+    
    
-   if (DELTA > 0)
+   if (discriminanteCalculado > 0)
    {
      System.out.println("\n\tA equação possui duas soluções reais distintas: ");
      
-     calcularEquacao(coeficienteA ,coeficienteB ,coeficienteC , DELTA);
-     calcularVertices(coeficienteA, coeficienteB, coeficienteC, DELTA);
+     calcularBhaskara(coeficienteA ,coeficienteB ,coeficienteC , discriminanteCalculado);
+     calcularVertices(coeficienteA, coeficienteB, coeficienteC, discriminanteCalculado);
    }
      
-   else if (DELTA < 0)
+   else if (discriminanteCalculado < 0)
    {
     System.out.println("\n\tA equação não possui solução Real.");
    }
@@ -97,16 +98,15 @@ class Main
    else
    {
     System.out.println("\n\tA equação possui apenas uma solução Real: ");
-     calcularVertices(coeficienteA, coeficienteB, coeficienteC, DELTA);
+     calcularVertices(coeficienteA, coeficienteB, coeficienteC, discriminanteCalculado);
    }
      
  }
 
-  
-
 
   
-  static void calcularVertices (int coeficienteA, int coeficienteB, int coeficienteC, double DELTA)
+  static void calcularVertices ( int coeficienteA, int coeficienteB, int coeficienteC, double DELTA)
+  
   {
     double xVertice, yVertice;
     
@@ -125,11 +125,21 @@ class Main
     
   }
 
+
   
+  static double calcularDiscriminante(int coeficienteA, int coeficienteB, int coeficienteC)
+  {
+    double DELTA;
+   
+    DELTA = Math.pow(coeficienteB , 2) -4 * coeficienteA * coeficienteC;
+
+    return DELTA;
+  }
 
 
   
-  static void calcularEquacao( int coeficienteA, int coeficienteB, int coeficienteC, double DELTA)
+  static void calcularBhaskara( int coeficienteA, int coeficienteB, int coeficienteC, double DELTA)
+  
   {
     double XI, XII;
   
@@ -143,8 +153,6 @@ class Main
     
   }
 
-
-
   
-  
+ 
 }
